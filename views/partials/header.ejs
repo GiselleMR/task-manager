@@ -10,7 +10,6 @@
 <body>
     <nav>
         <img src="/images/camera.svg">
-        <a href="/tasks" <%- title === 'All tasks' ? 'class="active"' : '' %>>ALL TASKS</a>
         <% if (user) { %>
           <a href="/logout">LOG OUT</a>
         <% } else { %>
@@ -18,4 +17,3 @@
         <% } %>
       </nav>
       
-  <h1><%= title %></h1>
