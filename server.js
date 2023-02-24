@@ -4,13 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
-var passport = require('passport');
-// var methodOverride = require('method-override');
+const passport = require('passport');
+var methodOverride = require('method-override');
+
 
 require('dotenv').config();
 require('./config/database');
 require('./config/passport');
-
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -25,6 +25,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride('_method'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
   secret: process.env.SECRET,
@@ -34,15 +36,12 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-// Add this middleware BELOW passport middleware
+/* Makes sure that the logged in user is in a user variable that's available inside all EJS templates. If nobody is logged in, user will be undefined. */
 app.use(function (req, res, next) {
   res.locals.user = req.user;
   next();
 });
 
-
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
