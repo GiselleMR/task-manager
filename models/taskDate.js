@@ -1,12 +1,22 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const taskDate = new Schema({
-    date: Date,
-    task: {
-        type: Schema.Types.ObjectId,
-        ref: "Task"
-    }
-}) 
+const taskDateSchema = new Schema({
+  date: {
+    type: Date
+  },
+  event: [
+  {
+    type: Schema.Types.ObjectId,
+    ref: 'Event'
+  }
+  ],
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  }},
+  {
+  timestamps: true
+});
 
 module.exports = mongoose.model("TaskDate", taskDate);
