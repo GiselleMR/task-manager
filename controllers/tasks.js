@@ -1,4 +1,6 @@
 const Task = require('../models/task');
+// const User = requrire ('../models/user');
+
 
 async function createTask(user){
     const newTask = new Task(user)
@@ -6,4 +8,7 @@ async function createTask(user){
     return saveTask
 }
 
-module.exports = createTask;
+module.exports = {
+    createTask
+
+}
