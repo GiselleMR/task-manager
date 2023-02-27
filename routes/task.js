@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
 const getUser = require('../controllers/users');
-const createTask = require('../controllers/tasks');
+const tasksCtrl = require('../controllers/tasks');
 
-router.post("/", async function (req, res) {
-    const body = req.body;
-    const user = await getUser(body.name);
-    const task = await createTask(user);
-    res.json(task);
-  });
+
+router.get('/', tasksCtrl.index);
+router.get('/new', tasksCtrl.new);
+router.get('/:id', tasksCtrl.show);
+router.post('/', tasksCtrl.create); 
+router.delete('/:id', tasksCtrl.delete);
 
 module.exports = router;
