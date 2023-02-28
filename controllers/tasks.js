@@ -15,9 +15,7 @@ function deleteTask(req, res) {
 
 function create(req, res) {
   console.log(req.body);
-  // Models are responible for CRUD'ing the data
   Task.create(req.body);
-  // Always do a redirect when data has been changed
   res.redirect('/tasks');
 }
 
@@ -33,7 +31,7 @@ function show(req, res) {
 }
 
 function index(req, res) {
-  res.render('todos/index', {
+  res.render('tasks/index', {
     tasks: Task.getAll(),
     title: 'All Tasks'
   });
