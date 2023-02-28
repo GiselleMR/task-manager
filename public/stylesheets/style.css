@@ -1,11 +1,38 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: azure;
 }
 
 a {
-  color: #00B7FF;
+  color: white;
 }
+
+body > nav {
+  grid-area: nav;
+  background-color: #378fa5;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px 0 30px;
+}
+
+nav > a {
+  margin: 20px;
+  text-decoration: underline dc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+nav > a:hover {
+  color: white;
+  background-color: #022c34;
+}
+
+nav > a.active {
+  color: white;
+}
+
 
 .login {
   display: flex;
@@ -20,5 +47,11 @@ a {
 }
 
 h1 {
-  color: blue;
+  color: rgb(0, 191, 255);
+  text-align: center;
+}
+
+p {
+  color: #0fb4f5;
+  text-align: center;
 }
