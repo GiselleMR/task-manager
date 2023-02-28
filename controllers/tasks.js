@@ -23,12 +23,12 @@ function newTask(req, res) {
   res.render('tasks/new', { title: 'New Task' });
 }
 
-function show(req, res) {
-  res.render('tasks/show', {
-    task: Task.getOne(req.params.id),
-    title: 'Task Details'
-  });
-}
+// function show(req, res) {
+//   res.render('tasks/show', {
+//     task: Task.getOne(req.params.id),
+//     title: 'Task Details'
+//   });
+// }
 
 function index(req, res) {
   res.render('tasks/index', {
