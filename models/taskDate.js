@@ -5,10 +5,10 @@ const taskDateSchema = new Schema({
   date: {
     type: Date
   },
-  event: [
+  task: [
   {
     type: Schema.Types.ObjectId,
-    ref: 'Event'
+    ref: 'Task'
   }
   ],
   user: {
@@ -19,4 +19,4 @@ const taskDateSchema = new Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model("TaskDate", taskDate);
+module.exports = mongoose.model("TaskDate", taskDateSchema);
