@@ -12,10 +12,11 @@ module.exports = {
 };
 
 function deleteTask(req, res) {
-  console.log("REQ.PARAMS");
-  console.log(req.params);
-  Task.deleteOne(req.params.any);
-  res.redirect('/tasks');
+  // console.log("REQ.PARAMS");
+  // console.log(req.params);
+  Task.findByIdAndDelete(req.params._id, function(err, task){
+    res.redirect('/tasks');
+  });
 }
 
 function create(req, res) {

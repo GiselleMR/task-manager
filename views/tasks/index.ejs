@@ -4,11 +4,8 @@
   <h4><%= task.description%></h4>
  <%=task.taskDate.toDateString()%> 
 <a href="/tasks/<%= task._id%>">Delete</a>
-
-<!-- <form action="/tasks/<%= task._id %>?_method=DELETE"
-  <button type="submit">DELETE</button>
-  </form>
-   -->
+<!-- <form action="/tasks/<%= task._id %>?_method=DELETE" <button type="submit">Delete</button>
+</form> -->
 <%}) %>
   
 <%- include('../partials/footer') %>
