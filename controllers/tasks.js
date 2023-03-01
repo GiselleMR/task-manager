@@ -12,7 +12,9 @@ module.exports = {
 };
 
 function deleteTask(req, res) {
-  Task.deleteOne(req.params.tuna);
+  console.log("REQ.PARAMS");
+  console.log(req.params);
+  Task.deleteOne(req.params.any);
   res.redirect('/tasks');
 }
 
@@ -50,10 +52,12 @@ function newTask(req, res) {
 }
 
 function show(req, res) {
-  res.render('tasks/show', {
-    task: Task.getOne(req.params.id),
-    title: 'Task Details'
-  });
+  Task.find({}, function(err, task){
+    res.render('tasks/show', {
+      task: task,
+      title: 'Task Details'
+    });
+  })
 }
 
 function index(req, res) {

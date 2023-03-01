@@ -1,10 +1,14 @@
-
 <%- include('../partials/header') %>
 <h1>Task Description</h1>
 <% tasks.forEach(task => { %>
   <h4><%= task.description%></h4>
  <%=task.taskDate.toDateString()%> 
+<a href="/tasks/<%= task._id%>">Delete</a>
 
+<!-- <form action="/tasks/<%= task._id %>?_method=DELETE"
+  <button type="submit">DELETE</button>
+  </form>
+   -->
 <%}) %>
   
 <%- include('../partials/footer') %>
