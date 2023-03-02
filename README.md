@@ -13,8 +13,9 @@ This Task Manager application is for users to store notes and task descriptions 
 - CSS
 - Node.js
 -Express
--mongodb
--mongoose
+-Mongodb
+-Mongoose
+-Heroku
 
 # Getting Started
 
