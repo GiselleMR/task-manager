@@ -9,6 +9,7 @@ router.get('/new', tasksCtrl.new);
 router.get('/:id', tasksCtrl.show);
 router.post('/', tasksCtrl.create); 
 router.delete('/:id', tasksCtrl.delete);
+router.put('/:id', tasksCtrl.update);
 
 router.get('/', function(req, res, next) {
   res.render('tasks', { title: 'Manage Tasks' });

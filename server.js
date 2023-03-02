@@ -6,6 +6,7 @@ var logger = require('morgan');
 var session = require('express-session');
 var passport = require('passport');
 var methodOverride = require('method-override');
+var ensureLoggedIn = require('./config/ensureLoggedIn');
 
 
 require('dotenv').config();
@@ -45,16 +46,13 @@ app.use(function (req, res, next) {
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/tasks', taskRouter);
+app.use('/users', ensureLoggedIn, usersRouter);
+app.use('/tasks', ensureLoggedIn, taskRouter);
 
 app.get("/manage_tasks", (req, res) => {
   res.render("tasks/managetasks");
 });
 
-// app.get("/this_week", (req, res) => {
-//   res.render("tasks/thisweek");
-// });
 
 
 // catch 404 and forward to error handler

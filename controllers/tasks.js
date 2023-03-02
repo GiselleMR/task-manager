@@ -8,13 +8,20 @@ module.exports = {
   show,
   new: newTask,
   create,
-  delete: deleteTask
+  delete: deleteTask,
+  update: updateTask
 };
 
+function updateTask(req, res) {
+  Task.updateOne(req.params._id, function(err){
+    res.redirect('/tasks');
+  });
+}
+
 function deleteTask(req, res) {
-  // console.log("REQ.PARAMS");
-  // console.log(req.params);
-  Task.findByIdAndDelete(req.params._id, function(err, task){
+  console.log("REQ.PARAMS");
+  console.log(req.params);
+  Task.deleteOne(req.params._id, function(err){
     res.redirect('/tasks');
   });
 }
@@ -62,7 +69,8 @@ function show(req, res) {
 }
 
 function index(req, res) {
-  Task.find({}, function(err, tasks){
+  console.log("req.user", req)
+  Task.find({user:req.user._id}, function(err, tasks){
     res.render('tasks/index', {
       tasks: tasks,
       title: 'All Tasks',
