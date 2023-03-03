@@ -9,19 +9,26 @@ module.exports = {
   new: newTask,
   create,
   delete: deleteTask,
-  update: updateTask
+  update: updateTask,
+  edit: editTask
 };
 
 function updateTask(req, res) {
-  Task.updateOne(req.params._id, function(err){
+  Task.findByIdAndUpdate(req.params._id, function(err){
+    res.redirect('/tasks');
+  });
+}
+
+function editTask(req, res) {
+  Task.edit(req.params._id, function(err){
     res.redirect('/tasks');
   });
 }
 
 function deleteTask(req, res) {
   console.log("REQ.PARAMS");
-  console.log(req.params);
-  Task.deleteOne(req.params._id, function(err){
+  console.log(req.params.id);
+  Task.findByIdAndDelete(req.params.id, function(err){
     res.redirect('/tasks');
   });
 }

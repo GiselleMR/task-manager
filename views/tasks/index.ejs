@@ -7,8 +7,15 @@
  <form action ="/tasks/<%=task._id%>?_method=DELETE" method="POST" ><button type="submit">Done</button>
  </form>
 
- <form action ="/tasks/<%=task._id%>?_method=PUT" method="POST" ><button type="submit">Update</button>
- </form>
+
+ <form action="/tasks/<%= task._id %>?_method=PUT" method="POST">
+  <!-- Value attribute is being set to the comment's current text -->
+  <input name="text" value="<%= task.text %>">
+  <button type="submit">Update Task</button>
+</form>
+
+ <!-- <form action ="/tasks/<%=task._id%>?_method=PUT" method="POST" ><button type="submit">Update</button>
+ </form> -->
  
 <%}) %>
   
