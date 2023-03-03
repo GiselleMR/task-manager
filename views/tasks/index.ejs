@@ -1,22 +1,22 @@
 <%- include('../partials/header') %>
+
 <h1>Task Description</h1>
+<table>
 <% tasks.forEach(task => { %>
   <h4><%= task.description%></h4>
   <%= task.taskDate ? task.taskDate.toDateString() : ""%>
 
- <form action ="/tasks/<%=task._id%>?_method=DELETE" method="POST" ><button type="submit">Done</button>
- </form>
-
-
+ 
  <form action="/tasks/<%= task._id %>?_method=PUT" method="POST">
-  <!-- Value attribute is being set to the comment's current text -->
   <input name="text" value="<%= task.text %>">
   <button type="submit">Update Task</button>
 </form>
 
- <!-- <form action ="/tasks/<%=task._id%>?_method=PUT" method="POST" ><button type="submit">Update</button>
- </form> -->
+<form action ="/tasks/<%=task._id%>?_method=DELETE" method="POST" ><button type="submit">Done</button>
+</form>
+
+
  
 <%}) %>
-  
+</table>  
 <%- include('../partials/footer') %>
