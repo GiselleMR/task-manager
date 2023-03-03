@@ -38,12 +38,6 @@ function edit(req, res) {
 //   });
 // }
 
-function editTask(req, res) {
-  task.findOne({'tasks._id': req.params.id}, function(err, book) {
-    const task = task.tasks.id(req.params.id);
-    res.render('tasks/edit', {task});
-  });
-}
 
 function deleteTask(req, res) {
   console.log("REQ.PARAMS");
