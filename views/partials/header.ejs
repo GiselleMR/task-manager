@@ -9,9 +9,9 @@
 </head>
 <body>
     <nav>
+      
         <% if (user) { %>
           <a href="/manage_tasks"> Manage Tasks</a>
-          <!-- <a href="/this_week">This Week</a> -->
           <a href="/logout">LOG OUT</a>
         <% } else { %>
           <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>

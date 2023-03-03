@@ -15,33 +15,27 @@ module.exports = {
 };
 
 function updateTask(req, res) {
-  console.log(req.params);
+  // console.log(req.params, "this is the params");
   task.findById(req.params.id, function (err, task){
-    console.log('hello', report);
-    task.task = req.body.task;
+    console.log('hello', req.body);
+    task.description = req.body.text;
     task.save(function(err){
-      res.redicet('/tasks/${req.params.vehicleId}');
+      res.redirect(`/tasks`);
     })
   })
 }
 
 function edit(req, res) {
   Task.findOne({'tasks._id': req.params.id}, function(err, task) {
-    const comment = book.comments.id(req.params.id);
+    const comment = task.comments.id(req.params.id);
     res.render('tasks/edit', {comment});
   });
 }
 
-// function updateTask(req, res) {
-//   Task.findByIdAndUpdate(req.params._id, function(err){
-//     res.redirect('/tasks');
-//   });
-// }
-
 
 function deleteTask(req, res) {
-  console.log("REQ.PARAMS");
-  console.log(req.params.id);
+  // console.log("REQ.PARAMS");
+  // console.log(req.params.id);
   Task.findByIdAndDelete(req.params.id, function(err){
     res.redirect('/tasks');
   });
@@ -49,10 +43,10 @@ function deleteTask(req, res) {
 
 function create(req, res) {
   User.findById(req.user._id, function(err, user) {
-    console.log(user);
-    console.log("REQUEST USER", req.user)
-    console.log("userfound",user)
-    console.log(req.user);
+    // console.log(user);
+    // console.log("REQUEST USER", req.user)
+    // console.log("userfound",user)
+    // console.log(req.user);
     Task.create({
       description: req.body.description,
       user: user._id,
@@ -90,7 +84,7 @@ function show(req, res) {
 }
 
 function index(req, res) {
-  console.log("req.user", req)
+  // console.log("req.user", req)
   Task.find({user:req.user._id}, function(err, tasks){
     res.render('tasks/index', {
       tasks: tasks,
