@@ -2,6 +2,7 @@ const Task = require('../models/task');
 const User = require('../models/user');
 const TaskDate = require('../models/taskDate');
 const taskDate = require('../models/taskDate');
+const task = require('../models/task');
 
 module.exports = {
   index,
@@ -10,18 +11,37 @@ module.exports = {
   create,
   delete: deleteTask,
   update: updateTask,
-  edit: editTask
+  edit
 };
 
 function updateTask(req, res) {
-  Task.findByIdAndUpdate(req.params._id, function(err){
-    res.redirect('/tasks');
+  console.log(req.params);
+  task.findById(req.params.id, function (err, task){
+    console.log('hello', report);
+    task.task = req.body.task;
+    task.save(function(err){
+      res.redicet('/tasks/${req.params.vehicleId}');
+    })
+  })
+}
+
+function edit(req, res) {
+  Task.findOne({'tasks._id': req.params.id}, function(err, task) {
+    const comment = book.comments.id(req.params.id);
+    res.render('tasks/edit', {comment});
   });
 }
 
+// function updateTask(req, res) {
+//   Task.findByIdAndUpdate(req.params._id, function(err){
+//     res.redirect('/tasks');
+//   });
+// }
+
 function editTask(req, res) {
-  Task.edit(req.params._id, function(err){
-    res.redirect('/tasks');
+  task.findOne({'tasks._id': req.params.id}, function(err, book) {
+    const task = task.tasks.id(req.params.id);
+    res.render('tasks/edit', {task});
   });
 }
 
