@@ -20,7 +20,8 @@ This Task Manager application is for users to store notes and task descriptions 
 
 # Getting Started
 
-[Click to View Project Planning](your Trello url here)
+[Click to View Project Planning]
+https://trello.com/b/NqyiEHwQ/project-2
 
 [Click launch website]
 https://pure-basin-71016.herokuapp.com/

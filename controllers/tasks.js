@@ -43,10 +43,7 @@ function deleteTask(req, res) {
 
 function create(req, res) {
   User.findById(req.user._id, function(err, user) {
-    // console.log(user);
-    // console.log("REQUEST USER", req.user)
-    // console.log("userfound",user)
-    // console.log(req.user);
+   
     Task.create({
       description: req.body.description,
       user: user._id,
