@@ -13,10 +13,11 @@ This Task Manager application is for users to store notes and task descriptions 
 - JavaScript
 - HTML
 - CSS
-- Node.js
+- Node.JS
 - Express
 - MongoDB
 - Mongoose
+- Oauth
 
 
 # Getting Started
