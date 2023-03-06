@@ -4,8 +4,9 @@ This Task Manager application is for users to store notes and task descriptions 
 
 # Screenshot
 
-<img src="url to your image on imgur">
-<img src="url to your image on imgur">
+<img src="./public/images/LogIn.png">
+<img src="./public/images/Tasks.png">
+<img src="./public/images/addTask.png">
 
 # Technologies Used
 
